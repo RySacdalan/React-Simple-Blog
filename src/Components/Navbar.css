@@ -1,0 +1,22 @@
+.navbar__main {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.navbar__main_list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.navbar__main li {
+  display: inline;
+  list-style: none;
+  margin: 0 1rem;
+}
+.navbar__main a {
+  text-decoration: none;
+  color: black;
+}
