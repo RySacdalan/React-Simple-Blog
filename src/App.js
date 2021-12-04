@@ -2,37 +2,39 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import BlogList from "./Components/BlogList";
+import Create from "./Components/Create";
+import Homepage from "./Homepage";
 import "./App.css";
 
 function App() {
-  const [sample, setSample] = useState([
-    {
-      id: 1,
-      title: "Random title",
-      body: "lorem ipsum....",
-    },
-    {
-      id: 2,
-      title: "Second Random title",
-      body: "lorem ipsum....",
-    },
-    {
-      id: 3,
-      title: "Third Random title",
-      body: "lorem ipsum....",
-    },
-  ]);
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/Blogs")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setBlogs(data);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <Router>
-      <div className="App">
-        <h1>React Blog</h1>
-        <Navbar />
-      </div>
       <Switch>
-        <Route>
-          <BlogList sample={sample} />
-        </Route>
+        <div className="App">
+          <Navbar />
+          <Route exact path="/">
+            <Homepage blogs={blogs} />
+          </Route>
+          <Route path="/create">
+            <Create />
+          </Route>
+        </div>
       </Switch>
     </Router>
   );

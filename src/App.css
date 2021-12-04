@@ -1,6 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&family=Roboto:wght@100;300;400;500;700&display=swap");
 .App {
-  margin: 0 auto;
+  margin: auto;
   width: 800px;
   font-family: "Roboto", sans-serif;
+}
+.blog-form-container {
+  width: 600px;
+  border: 2px solid red;
+  padding: 1rem;
+}
+.blog-post-form {
+  display: flex;
+  flex-direction: column;
+}
+.blog-post-form input,
+textarea {
+  padding: 8px;
+  margin: 1rem 0;
+}
+.blog-post-form textarea {
+  height: 70px;
+}
+.blog-post-form button {
+  padding: 10px;
+  width: 70px;
+  cursor: pointer;
 }
