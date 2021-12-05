@@ -5,9 +5,10 @@
   font-family: "Roboto", sans-serif;
 }
 .blog-form-container {
-  width: 600px;
+  width: 100%;
   border: 2px solid red;
   padding: 1rem;
+  border-radius: 5px;
 }
 .blog-post-form {
   display: flex;
