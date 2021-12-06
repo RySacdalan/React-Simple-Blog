@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 
-const useFetch = () => {
-  const [blogs, setBlogs] = useState([]);
+const useFetch = (url) => {
+  const [data, setData] = useState([]);
   const [loadPending, setLoadPending] = useState(true);
   const [errorExist, setErrorExist] = useState(null);
 
   useEffect(() => {
+    const abortLink = new AbortController();
+
     setTimeout(() => {
-      fetch("http://localhost:8000/Blogs")
+      fetch(url, { signal: abortLink.signal })
         .then((response) => {
           if (!response.ok) {
             throw new Error("Oops! Could not fetch the data :( ");
@@ -16,18 +18,23 @@ const useFetch = () => {
           }
         })
         .then((data) => {
-          setBlogs(data);
+          setData(data);
           setLoadPending(false);
         })
         .catch((err) => {
-          setLoadPending(false);
-          setErrorExist(err.message);
-          console.log(err.message);
+          if (err.name === "AbortError") {
+            console.log("Fetch aborted");
+          } else {
+            setLoadPending(false);
+            setErrorExist(err.message);
+          }
         });
     }, 0.5);
-  }, []);
 
-  return { blogs, loadPending, errorExist };
+    return () => abortLink.abort();
+  }, [url]);
+
+  return { data, loadPending, errorExist };
 };
 
 export default useFetch;
