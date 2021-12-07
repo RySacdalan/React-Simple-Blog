@@ -7,11 +7,12 @@ const BlogList = ({ blogs }) => {
       {blogs.map((blog) => {
         return (
           <div className="blog-list-content" key={blog.id}>
-            <h2>Title: {blog.title}</h2>
+            <h2>
+              Title: {blog.title} - {blog.id}
+            </h2>
             <h3>Author: {blog.author}</h3>
             <p>
-              {blog.body.slice(0, 170)}...
-              <Link to={`blog/${blog.id}`}>Read more</Link>
+              <Link to={`blog/${blog.id}`}>Read</Link>
             </p>
           </div>
         );
