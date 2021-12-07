@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
 const Create = () => {
   const [title, setTitle] = useState("");
@@ -26,9 +26,10 @@ const Create = () => {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(newBlog),
+    }).then(() => {
+      console.log("New blog added!");
+      history.push("/");
     });
-
-    console.log("New blog added!");
   };
 
   return (

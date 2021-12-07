@@ -11,7 +11,9 @@ const Homepage = () => {
   return (
     <>
       <h1>Homepage</h1>
+
       {BlogList && <BlogList blogs={blogs} />}
+
       {loadPending && (
         <div>
           <h2>Loading...</h2>
