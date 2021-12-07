@@ -1,30 +1,34 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 
 const Create = () => {
   const [title, setTitle] = useState("");
-  const [blogAuthor, setBlogAuthor] = useState("");
-  const [blogBody, setBlogBody] = useState("");
+  const [author, setAuthor] = useState("");
+  const [body, setBody] = useState("");
+  const history = useHistory();
 
   const titleChangeHandler = (e) => {
     setTitle(e.target.value);
   };
   const authorChangeHandler = (e) => {
-    setBlogAuthor(e.target.value);
+    setAuthor(e.target.value);
   };
   const bodyChangeHandler = (e) => {
-    setBlogBody(e.target.value);
+    setBody(e.target.value);
   };
 
   const submitFormHandler = (e) => {
     e.preventDefault();
 
-    const newBlog = { title, blogAuthor, blogBody };
+    const newBlog = { title, author, body };
 
     fetch("http://localhost:8000/Blogs", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(newBlog),
     });
+
+    console.log("New blog added!");
   };
 
   return (
@@ -42,15 +46,11 @@ const Create = () => {
         <input
           type="text"
           onChange={authorChangeHandler}
-          value={blogAuthor}
+          value={author}
           required
         />
         <label>Body: </label>
-        <textarea
-          onChange={bodyChangeHandler}
-          value={blogBody}
-          required
-        ></textarea>
+        <textarea onChange={bodyChangeHandler} value={body} required></textarea>
         <button type="submit">Post</button>
       </form>
     </div>
