@@ -1,5 +1,6 @@
 import { useHistory, useParams } from "react-router";
 import useFetch from "../useFetch";
+import "./BlogDetails.css";
 
 const BlogDetails = () => {
   const history = useHistory();
@@ -33,7 +34,7 @@ const BlogDetails = () => {
       {blogs && (
         <article>
           <h1>{blogs.title}</h1>
-          <h3>Author: {blogs.author}</h3>
+          <h3>Written by: {blogs.author}</h3>
           <p>{blogs.body}</p>
           <button onClick={deleteHandler}>Delete</button>
         </article>

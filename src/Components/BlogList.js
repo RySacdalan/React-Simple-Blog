@@ -6,10 +6,12 @@ const BlogList = ({ blogs }) => {
     <div className="blog-list-container">
       {blogs.map((blog) => (
         <div className="blog-list-content" key={blog.id}>
-          <h2>Title: {blog.title}</h2>
+          <h1>{blog.title}</h1>
           <h3>Author: {blog.author}</h3>
           <p>
-            <Link to={`blog/${blog.id}`}>Read</Link>
+            <Link to={`blog/${blog.id}`}>
+              <button>Read</button>
+            </Link>
           </p>
         </div>
       ))}

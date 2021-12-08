@@ -9,7 +9,7 @@ const Homepage = () => {
   } = useFetch("http://localhost:8000/Blogs");
 
   return (
-    <>
+    <div className="homepage_container">
       <h1>Homepage</h1>
 
       {BlogList && <BlogList blogs={blogs} />}
@@ -24,7 +24,7 @@ const Homepage = () => {
           <h2>{errorExist}</h2>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

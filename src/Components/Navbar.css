@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  font-weight: bold;
 }
 .navbar__main_list {
   display: flex;
@@ -16,7 +17,12 @@
   list-style: none;
   margin: 0 1rem;
 }
-.navbar__main a {
+.navbar__main a,
+h2 {
   text-decoration: none;
-  color: black;
+  color: #2f3542;
+}
+.navbar__main a:hover {
+  color: #747d8c;
+  border-bottom: 3px solid #747d8c;
 }

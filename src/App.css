@@ -4,26 +4,55 @@
   width: 60%;
   font-family: "Roboto", sans-serif;
 }
+/* Homepage */
+.homepage_container > h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #747d8c;
+}
+
+/*blog form style*/
 .blog-form-container {
-  width: 100%;
-  border: 2px solid red;
-  padding: 1rem;
+  width: 90%;
+  border: none;
+  padding: 1.5rem;
   border-radius: 5px;
+  box-shadow: 0px 7px 15px #d6d5d5;
+}
+.blog-form-container > h1 {
+  color: #747d8c;
 }
 .blog-post-form {
   display: flex;
   flex-direction: column;
+  padding: 10px;
+}
+.blog-post-form label {
+  font-weight: bold;
 }
 .blog-post-form input,
 textarea {
   padding: 8px;
-  margin: 1rem 0;
+  margin: 10px 0;
 }
 .blog-post-form textarea {
+  font-family: inherit;
   height: 70px;
+  max-height: 80px;
+  max-width: 100%;
 }
 .blog-post-form button {
-  padding: 10px;
-  width: 70px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #747d8c;
+  color: #fff;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 100%;
+  border: none;
   cursor: pointer;
+}
+.blog-post-form button:hover {
+  background: #2ed573;
 }
